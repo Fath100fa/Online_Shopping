@@ -1,0 +1,22 @@
+#username{
+    width: 30%;
+    padding: 10px;
+    border: 1px solid ;
+    border-radius: 7px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: small;
+
+}
+#password{
+    width: 30%;
+    padding: 10px;
+    border: 1px solid ;
+    border-radius: 7px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: small;
+
+}
+#loginForm{
+}
