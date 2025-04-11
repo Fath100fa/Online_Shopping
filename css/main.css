@@ -1,5 +1,5 @@
 #username{
-    width: 30%;
+    width: 50%;
     padding: 10px;
     border: 1px solid ;
     border-radius: 7px;
@@ -9,7 +9,7 @@
 
 }
 #password{
-    width: 30%;
+    width: 50%;
     padding: 10px;
     border: 1px solid ;
     border-radius: 7px;
@@ -19,4 +19,12 @@
 
 }
 #loginForm{
+    width: 60%;
+    padding: 10px;
+    border: 1px solid ;
+    border-radius: 7px;
+    box-sizing: border-box;
+    margin: auto;
+    font-size: small;
+    background-color: #86ebb0;
 }
