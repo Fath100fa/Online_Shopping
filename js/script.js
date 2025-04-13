@@ -31,3 +31,14 @@ function addToCart(productId) {
 function removeFromCart(productId) {
     // will be completed in part 2 of project
 }
+
+const stars = document.querySelectorAll("#rating span");
+    stars.forEach((star) => {
+      star.addEventListener("click", () => {
+        stars.forEach(s => s.classList.remove("selected"));
+        for (let i = 0; i < star.dataset.value; i++) {
+          stars[i].classList.add("selected");
+        }
+        alert("You rated this laptop: " + star.dataset.value + " stars");
+      });
+    });
