@@ -149,14 +149,17 @@ section h2 {
 }
 
 .product button {
-    background-color: #58b35b;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+     background-color: #58b35b;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #d3f0b7;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .product button:hover {
-    background-color: #127c15;
+       background-color: white;
+    border-color: #58b35b;
+    color: #58b35b;
 }
