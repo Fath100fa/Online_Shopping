@@ -175,3 +175,55 @@ footer {
     width: 100%;
     font-size: 14px;
 }
+
+
+/*Nasar*/
+nav {
+    background-color: #2b832e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.nav-search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.nav-search input[type="search"] {
+    padding: 8px;
+    width: 50%;
+    max-width: 300px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid #d3f0b7;
+    outline: none;
+}

@@ -42,3 +42,24 @@ const stars = document.querySelectorAll("#rating span");
         alert("You rated this laptop: " + star.dataset.value + " stars");
       });
     });
+
+
+    //Added by nassar
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search');
+        const products = document.querySelectorAll('.product');
+    
+        searchInput.addEventListener('input', (e) => {
+            const value = e.target.value.toLowerCase();
+    
+            products.forEach(product => {
+                const productName = product.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(value)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    });
+    //ends here
