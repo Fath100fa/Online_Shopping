@@ -214,8 +214,8 @@ nav ul li a:hover {
 .nav-search {
     flex: 1;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    justify-content:right;
+    padding: 10px ;
 }
 
 .nav-search input[type="search"] {
@@ -223,7 +223,7 @@ nav ul li a:hover {
     width: 50%;
     max-width: 300px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 18px;
     border: 2px solid #d3f0b7;
     outline: none;
 }
