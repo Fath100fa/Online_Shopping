@@ -26,7 +26,7 @@
         <h3><i class="fas fa-laptop-code"></i> CompuVerse</h3>
 
         <div class="nav-search">
-            <input type="search" id="search" placeholder="Search for a product...">
+            <input type="search" id="search" placeholder="Search">
             <i class="fas fa-search" style="position: relative; right: 25px;"></i>
         </div>
 

@@ -31,6 +31,8 @@ body {
 
 .fa-search {
     color: #666;
+    margin-top: 9px;
+ 
 }
 
 
@@ -366,11 +368,12 @@ nav ul li a:hover {
     display: flex;
     justify-content:right;
     padding: 10px ;
+    font-size: 15px;
 }
 
 .nav-search input[type="search"] {
     padding: 8px;
-    width: 50%;
+    width: 30%;
     max-width: 300px;
     font-size: 14px;
     border-radius: 18px;
@@ -396,9 +399,7 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.profile-section {
-    margin-top: 20px;
-}
+
 
 .profile-button {
     background-color: #58b35b;
