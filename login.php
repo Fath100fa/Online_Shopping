@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="username" id="username" placeholder="Username or Email" required>
     <br>
     <div class="password-container">
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+        <input type="password" name="password" id="password" placeholder="Password"  required>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword" onclick="showPassword()"></i>
     </div>
     <br>
     <input type="submit" id="login" value="Login">

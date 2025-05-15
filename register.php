@@ -66,12 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <br>
 <div class="password-container">
     <input type="password" name="password" id="password" placeholder="Password" required>
-    <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+    <i class="fa-solid fa-eye toggle-password" id="togglePassword" onclick="showPassword()"></i>
 </div>
 <br>
 <div class="password-container">
     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-    <i class="fa-solid fa-eye toggle-password" id="toggleConfirmPassword"></i>
+    <i class="fa-solid fa-eye toggle-password" id="toggleConfirmPassword" onclick="showPassword1()"></i>
 </div>
 <br>
 <input type="submit" id="register" value="Register">
