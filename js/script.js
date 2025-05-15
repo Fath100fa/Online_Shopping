@@ -26,7 +26,7 @@ function addToCart(productId) {
             alert("Product " + productId + " added to cart!");
         }
     };
-    window.location.href = "cart.html";
+    window.location.href = "cart.php";
 }
 function removeFromCart(productId) {
     // will be completed in part 2 of project
