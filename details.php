@@ -18,17 +18,18 @@ if (!$conn) {
   <meta charset="UTF-8" />
   <title>details</title>
   <link rel="stylesheet" href="css/Details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
-    <h1><!--php--></h1>
+    <h1><i class="fas fa-laptop"></i> <!--php--></h1>
     <img src="<!--php-->" alt="<!--php-->" />
-    <p><strong>Price:</strong> <!--php--></p>
+    <p><strong><i class="fas fa-tag"></i> Price:</strong> <!--php--></p>
     <p>
-      <strong>Specs:</strong> <!--php-->
+      <strong><i class="fas fa-microchip"></i> Specs:</strong> <!--php-->
     </p>
 
-    <h2>Rate this Laptop</h2>
+    <h2><i class="fas fa-star"></i> Rate this Laptop</h2>
     <div class="rating" id="rating">
       <span data-value="1">&#9733;</span>
       <span data-value="2">&#9733;</span>

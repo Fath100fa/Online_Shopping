@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Step 1: Enter email -->
             <h4><i class="fas fa-envelope"></i> Enter your email to reset your password</h4>
             <input type="email" name="email" id="email" placeholder="Email" required>
+            <i class="fas fa-envelope" style="position: relative; left: -95%; top: -50px;"></i>
             <br>
             <input id="login" type="submit" value="Continue">
             <h4><i class="fas fa-sign-in-alt"></i> Remember your password? <a href="login.php">Login</a></h4>
@@ -85,13 +86,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h4><i class="fas fa-lock"></i> Enter your new password</h4>
             <div class="password-container">
                 <input type="password" name="new_password" id="password" placeholder="New Password" required>
-                <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+                <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
             </div>
+            <i class="fas fa-lock" style="position: relative; left: -95%; top: -50px;"></i>
             <br>
             <div class="password-container">
                 <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm New Password" required>
-                <i class="fa-solid fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                <i class="fa-solid fa-eye-slash toggle-password" id="toggleConfirmPassword"></i>
             </div>
+            <i class="fas fa-lock" style="position: relative; left: -95%; top: -50px;"></i>
             <br>
             <input id="login" type="submit" value="Reset Password">
             

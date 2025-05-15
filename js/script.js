@@ -12,11 +12,11 @@ function showPassword() {
 }
 
 function showPassword1() {
-    var x = document.getElementById("confirm_password");
-    if (x.type === "password") {
-    x.type = "text";
+    var y = document.getElementById("confirm_password");
+    if (y.type === "password") {
+    y.type = "text";
     } else {
-    x.type = "password";
+    y.type = "password";
     }
     const slash= document.querySelector("#toggleConfirmPassword");
    
