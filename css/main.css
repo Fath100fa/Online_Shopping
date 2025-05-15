@@ -4,33 +4,74 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Adding keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(88, 179, 91, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
+}
+
 #username,
-#password , #email,#date ,#confirm_password{
+#password, #email, #date, #confirm_password {
     width: 80%;
     padding: 10px;
     border: 4px solid #d3f0b7;
     border-radius: 11px;
     margin-bottom: 15px;
     font-size: 14px;
+    transition: all 0.2s ease;
+}
 
+#username:focus,
+#password:focus, 
+#email:focus, 
+#date:focus, 
+#confirm_password:focus {
+    border-color: #58b35b;
+    outline: none;
+    animation: borderGlow 2s infinite;
 }
-#login:hover ,#register:hover{
+
+#login:hover, #register:hover {
     color: #58b35b;
+    animation: pulse 0.2s ease-in-out;
 }
-#loginForm ,#SignupForm, #resetPasswordForm {
+
+#loginForm, #SignupForm, #resetPasswordForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 400px;
-    padding:10 px;
-    border: 3px  solid #b2ec99;
+    padding: 10px;
+    border: 3px solid #b2ec99;
     border-radius: 10px;
     box-sizing: border-box;
     margin: 100px auto;
     background-color: #f9f9f9;
+    animation: fadeIn 0.8s ease-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
-#login ,#register{
+
+#loginForm:hover, #SignupForm:hover, #resetPasswordForm:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+#login, #register {
     background-color: #58b35b;
     color: white;
     padding: 10px 20px;
@@ -38,20 +79,31 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
-}
-#login:hover ,#register:hover{
-    background-color: white;
-    border-color: #58b35b;
-}
-a{
-    text-decoration: none;
-    color: #58b35b;
-}
-#loginForm a:hover ,#SignupForm a:hover, #resetPasswordForm a:hover{
-    color: #38953c;
-    
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+#login:hover, #register:hover {
+    background-color: white;
+    border-color: #58b35b;
+    transform: translateY(-2px);
+}
+
+#login:active, #register:active {
+    transform: translateY(1px);
+}
+
+a {
+    text-decoration: none;
+    color: #58b35b;
+    transition: all 0.2s ease;
+}
+
+#loginForm a:hover, #SignupForm a:hover, #resetPasswordForm a:hover {
+    color: #38953c;
+    text-decoration: underline;
+}
 
 nav {
     background-color: #2b832e;
@@ -82,6 +134,7 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
+
 header {
     background-color: #f4f4f4;
     text-align: center;
@@ -99,6 +152,7 @@ header p {
     color: #666;
     margin: 10px 0 0;
 }
+
 section {
     padding: 20px;
     border-radius: 8px;
@@ -159,9 +213,11 @@ section h2 {
     border-color: #58b35b;
     color: #58b35b;
 }
+
 #ShowPassword{
     margin-left: -74%;
 }
+
 footer {
     background-color: #333;
     color: #fff;
@@ -171,7 +227,6 @@ footer {
     width: 100%;
     font-size: 14px;
 }
-
 
 nav {
     background-color: #2b832e;
