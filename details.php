@@ -1,18 +1,31 @@
+<?php
+session_start();
+include "conn.php";
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+    $result = $conn->query("SELECT * FROM products");
+    if ($result === false) {
+        die("Error: " . $conn->error);
+    }
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+    $conn->close();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ASUS A15 Details</title>
+  <title>details</title>
   <link rel="stylesheet" href="css/Details.css">
 </head>
 <body>
   <div class="container">
-    <h1>ASUS TUF Gaming A15</h1>
-    <img src="img/Asus_Tuf.jpg" alt="ASUS A15" />
-    <p><strong>Price:</strong> 30,000 EGP</p>
+    <h1><!--php--></h1>
+    <img src="<!--php-->" alt="<!--php-->" />
+    <p><strong>Price:</strong> <!--php--></p>
     <p>
-      <strong>Specs:</strong> Ryzen 7 4800H, RTX 2050 (2GB), 16GB RAM, 512GB SSD + 1TB HDD,
-      15.6" Display, Windows 11.
+      <strong>Specs:</strong> <!--php-->
     </p>
 
     <h2>Rate this Laptop</h2>

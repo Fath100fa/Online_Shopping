@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include "conn.php";
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $result = $conn->query("SELECT * FROM products");
+    if ($result === false) {
+        die("Error: " . $conn->error);
+    }
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+    $conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +29,15 @@
         </div>
 
         <ul>
+            <li><a href="profile.php">
+                <?php
+                    if (isset($_SESSION["username"])) {
+                        echo $_SESSION["username"];
+                    } else {
+                        echo "Guest";
+                    }
+                ?>
+            </a></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="Login.php">Login</a></li>
             <li><a href="register.php">Sign up</a></li>
@@ -30,45 +52,24 @@
     <section>
 
         <h2>Featured Products</h2>
-        <!--Product 1-->
         <div class="products">
-            <div class="product" id="item1111">
-                <a href="details.php">
-                    <img src="img/Asus_Tuf.jpg" alt="Asus TUF Gaming A15">
-                </a>
-                <h3>Asus TUF Gaming A15</h3>
-                <p>30,000 EGP</p>
-
-                <!--Nassar aded this-->
-                <a href="AsusDetails.html">
-                    <button class="details-button">Details</button>
-                </a>
-                
-
-                <button onclick="addToCart('item1111')">Add to Cart</button>
-            </div>
-
-            <!--Product 2-->
-            <div class="product" id="item1112">
-               
-                <a href="LenovoLegion5ProDetails.html">
-                    <img src="img/lenovo.webp" alt="Lenovo Legion 5 Pro">
-                </a>
-               
-
-                <h3>Lenovo Legion 5 Pro</h3>
-                <p>55,000 EGP</p>
-
-                 <!--Nassar aded this-->
-                 <a href="LenovoLegion5ProDetails.html">
-                    <button class="details-button">Details</button>
-                </a>
-                
-                <button onclick="addToCart('item1112')">Add to Cart</button>
-                <!--end of it-->
-
-
-            </div>
+            <?php
+                if (empty($products) || !is_array($products)) {
+                    echo '<p>No products available at the moment.</p>';
+                } else {
+                    foreach ($products as $product) {
+                        echo '<div class="product" id="item' . htmlspecialchars($product['id']) . '">';
+                        echo '<a href="details.php?id=' . urlencode($product['id']) . '">';
+                        echo '<img src="img/' . htmlspecialchars($product['image_url']) . '" alt="' . htmlspecialchars($product['name']) . '">';
+                        echo '</a>';
+                        echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
+                        echo '<p>' . htmlspecialchars($product['price']) . ' EGP</p>';
+                        echo '<a href="details.php?id=' . urlencode($product['id']) . '"><button>View Details</button></a>';
+                        echo '<button onclick="addToCart(\'item' . htmlspecialchars($product['id']) . '\')">Add to Cart</button>';
+                        echo '</div>';
+                    }
+                }
+            ?>
         </div>
     </section>
 
