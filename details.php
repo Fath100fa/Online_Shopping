@@ -18,19 +18,17 @@ if (!$conn) {
   <meta charset="UTF-8" />
   <title>details</title>
   <link rel="stylesheet" href="css/Details.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
-    <h1>ASUS TUF Gaming A15</h1>
-    <img src="img/Asus_Tuf.jpg" alt="ASUS A15" />
-    <p><strong>Price:</strong> 30,000 EGP</p>
+    <h1><!--php--></h1>
+    <img src="<!--php-->" alt="<!--php-->" />
+    <p><strong>Price:</strong> <!--php--></p>
     <p>
-      <strong>Specs:</strong> Ryzen 7 4800H, RTX 2050 (2GB), 16GB RAM, 512GB SSD + 1TB HDD,
-      15.6" Display, Windows 11.
+      <strong>Specs:</strong> <!--php-->
     </p>
 
-    <h2><i class="fas fa-star"></i> Rate this Laptop</h2>
+    <h2>Rate this Laptop</h2>
     <div class="rating" id="rating">
       <span data-value="1">&#9733;</span>
       <span data-value="2">&#9733;</span>
@@ -39,8 +37,6 @@ if (!$conn) {
       <span data-value="5">&#9733;</span>
     </div>
     
-    <button onclick="window.history.back()"><i class="fas fa-arrow-left"></i> Back</button>
-    <button onclick="addToCart('asus-a15')"><i class="fas fa-cart-plus"></i> Add to Cart</button>
     </div>
   </div>
 

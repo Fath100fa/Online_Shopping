@@ -17,20 +17,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>CompuVerse</title>
 </head>
 <body>
 
     <nav>
-        <h3><i class="fas fa-laptop"></i> CompuVerse</h3>
+        <h3>CompuVerse</h3>
 
         <div class="nav-search">
             <input type="search" id="search" placeholder="Search for a product...">
-            <i class="fas fa-search search-icon"></i>
         </div>
 
         <ul>
+            <li><a href="profile.php">
+                <?php
+                    if (isset($_SESSION["username"])) {
+                        echo $_SESSION["username"];
+                    } else {
+                        echo "Guest";
+                    }
+                ?>
+            </a></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="Login.php">Login</a></li>
             <li><a href="register.php">Sign up</a></li>
@@ -39,56 +46,35 @@
 
     <header>
         <h1>Welcome to CompuVerse</h1>
-        <p><i class="fas fa-tags"></i> Your one-stop shop for all things tech!</p>
+        <p>Your one-stop shop for all things tech!</p>
     </header>
 
     <section>
 
         <h2>Featured Products</h2>
-        <!--Product 1-->
         <div class="products">
-            <div class="product" id="item1111">
-                <a href="details.php">
-                    <img src="img/Asus_Tuf.jpg" alt="Asus TUF Gaming A15">
-                </a>
-                <h3>Asus TUF Gaming A15</h3>
-                <p>30,000 EGP</p>
-
-                <!--Nassar aded this-->
-                <a href="AsusDetails.html">
-                    <button class="details-button">Details</button>
-                </a>
-                
-
-                <button onclick="addToCart('item1111')">Add to Cart</button>
-            </div>
-
-            <!--Product 2-->
-            <div class="product" id="item1112">
-               
-                <a href="LenovoLegion5ProDetails.html">
-                    <img src="img/lenovo.webp" alt="Lenovo Legion 5 Pro">
-                </a>
-               
-
-                <h3>Lenovo Legion 5 Pro</h3>
-                <p>55,000 EGP</p>
-
-                 <!--Nassar aded this-->
-                 <a href="LenovoLegion5ProDetails.html">
-                    <button class="details-button">Details</button>
-                </a>
-                
-                <button onclick="addToCart('item1112')">Add to Cart</button>
-                <!--end of it-->
-
-
-            </div>
+            <?php
+                if (empty($products) || !is_array($products)) {
+                    echo '<p>No products available at the moment.</p>';
+                } else {
+                    foreach ($products as $product) {
+                        echo '<div class="product" id="item' . htmlspecialchars($product['id']) . '">';
+                        echo '<a href="details.php?id=' . urlencode($product['id']) . '">';
+                        echo '<img src="img/' . htmlspecialchars($product['image_url']) . '" alt="' . htmlspecialchars($product['name']) . '">';
+                        echo '</a>';
+                        echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
+                        echo '<p>' . htmlspecialchars($product['price']) . ' EGP</p>';
+                        echo '<a href="details.php?id=' . urlencode($product['id']) . '"><button>View Details</button></a>';
+                        echo '<button onclick="addToCart(\'item' . htmlspecialchars($product['id']) . '\')">Add to Cart</button>';
+                        echo '</div>';
+                    }
+                }
+            ?>
         </div>
     </section>
 
     <footer>
-        <p><i class="far fa-copyright"></i> 2023 CompuVerse. All rights reserved.</p>
+        <p>&copy; 2023 CompuVerse. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
