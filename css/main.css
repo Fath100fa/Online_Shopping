@@ -8,6 +8,45 @@ body {
 /* Font Awesome Icons Styling */
 .fa, .fas, .far, .fab {
     margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+.fa-home:hover, .fa-user:hover, .fa-sign-in-alt:hover, .fa-user-plus:hover, 
+.fa-key:hover, .fa-user-circle:hover, .fa-sign-out-alt:hover, .fa-laptop-code:hover {
+    transform: scale(1.2);
+    color: #38953c;
+}
+
+.fa-eye, .fa-eye-slash {
+    cursor: pointer;
+}
+
+.fa-star {
+    color: #ffc107;
+}
+
+.fa-tag, .fa-money-bill-wave {
+    color: #58b35b;
+}
+
+.fa-search {
+    color: #666;
+}
+
+.fa-cart-plus, .fa-shopping-cart {
+    color: #58b35b;
+}
+
+.fa-info-circle {
+    color: #17a2b8;
+}
+
+.fa-exclamation-circle {
+    color: #dc3545;
+}
+
+.fa-check-circle {
+    color: #28a745;
 }
 
 /* Password Toggle Styling */
@@ -343,4 +382,60 @@ nav ul li a:hover {
     border-radius: 18px;
     border: 2px solid #d3f0b7;
     outline: none;
+}
+
+/* Input field icon positioning */
+.input-icon {
+    position: relative;
+    left: -95%;
+    top: -50px;
+    color: #58b35b;
+}
+
+/* Profile page styling */
+.user-profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-section {
+    margin-top: 20px;
+}
+
+.profile-button {
+    background-color: #58b35b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #38953c;
+    transform: translateY(-2px);
+}
+
+/* Rating star styling */
+.rating span {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.rating span.selected,
+.rating span:hover {
+    color: #ffc107;
+}
+
+/* Button with icon styling */
+button i {
+    margin-right: 5px;
 }
