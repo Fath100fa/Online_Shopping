@@ -6,7 +6,6 @@ function showPassword() {
     x.type = "password";
     }
     const slash= document.querySelector("#togglePassword");
-    // console.log(slash);
     slash.classList.toggle("fa-eye-slash");
     slash.classList.toggle("fa-eye");
     
@@ -20,7 +19,7 @@ function showPassword1() {
     x.type = "password";
     }
     const slash= document.querySelector("#toggleConfirmPassword");
-    // console.log(slash);
+   
     slash.classList.toggle("fa-eye-slash");
     slash.classList.toggle("fa-eye");
 }
