@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include "conn.php";
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $result = $conn->query("SELECT * FROM products");
+    if ($result === false) {
+        die("Error: " . $conn->error);
+    }
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+    $conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +31,9 @@
         </div>
 
         <ul>
-            <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="Login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            <li><a href="register.php"><i class="fas fa-user-plus"></i> Sign up</a></li>
-            <li><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Login.php">Login</a></li>
+            <li><a href="register.php">Sign up</a></li>
         </ul>
     </nav>
 
@@ -32,7 +44,7 @@
 
     <section>
 
-        <h2><i class="fas fa-star"></i> Featured Products</h2>
+        <h2>Featured Products</h2>
         <!--Product 1-->
         <div class="products">
             <div class="product" id="item1111">
@@ -40,15 +52,15 @@
                     <img src="img/Asus_Tuf.jpg" alt="Asus TUF Gaming A15">
                 </a>
                 <h3>Asus TUF Gaming A15</h3>
-                <p><i class="fas fa-tags"></i> 30,000 EGP</p>
+                <p>30,000 EGP</p>
 
                 <!--Nassar aded this-->
                 <a href="AsusDetails.html">
-                    <button class="details-button"><i class="fas fa-info-circle"></i> Details</button>
+                    <button class="details-button">Details</button>
                 </a>
                 
 
-                <button onclick="addToCart('item1111')"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <button onclick="addToCart('item1111')">Add to Cart</button>
             </div>
 
             <!--Product 2-->
@@ -60,14 +72,14 @@
                
 
                 <h3>Lenovo Legion 5 Pro</h3>
-                <p><i class="fas fa-tags"></i> 55,000 EGP</p>
+                <p>55,000 EGP</p>
 
                  <!--Nassar aded this-->
                  <a href="LenovoLegion5ProDetails.html">
-                    <button class="details-button"><i class="fas fa-info-circle"></i> Details</button>
+                    <button class="details-button">Details</button>
                 </a>
                 
-                <button onclick="addToCart('item1112')"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <button onclick="addToCart('item1112')">Add to Cart</button>
                 <!--end of it-->
 
 
