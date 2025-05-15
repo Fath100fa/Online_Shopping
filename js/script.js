@@ -19,6 +19,10 @@ function showPassword1() {
     } else {
     x.type = "password";
     }
+    const slash= document.querySelector("#toggleConfirmPassword");
+    // console.log(slash);
+    slash.classList.toggle("fa-eye-slash");
+    slash.classList.toggle("fa-eye");
 }
 
 
