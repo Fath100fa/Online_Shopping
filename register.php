@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($insert_stmt->execute()) {
                 $_SESSION["username"] = $username;
-                header("Location: index.html");
+                header("Location: index.php");
                 exit();
             } else {
                 $error = "Registration failed: " . $conn->error;

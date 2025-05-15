@@ -16,9 +16,9 @@
         </div>
 
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Login.html">Login</a></li>
-            <li><a href="register.html">Sign up</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Login.php">Login</a></li>
+            <li><a href="register.php">Sign up</a></li>
         </ul>
     </nav>
 
@@ -33,7 +33,7 @@
         <!--Product 1-->
         <div class="products">
             <div class="product" id="item1111">
-                <a href="AsusDetails.html">
+                <a href="details.php">
                     <img src="img/Asus_Tuf.jpg" alt="Asus TUF Gaming A15">
                 </a>
                 <h3>Asus TUF Gaming A15</h3>

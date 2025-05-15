@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     
-    $sql = "SELECT * FROM user WHERE username = ? OR email = ?";
+    $sql = "SELECT * FROM users WHERE username = ? OR email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $username, $username);
     $stmt->execute();
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row["password_hash"])) {
             $_SESSION["username"] = $row["username"];
-            header("Location: index.html");
+            header("Location: index.php");
             exit();
         } else {
             $error = "Invalid password";
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <input type="submit" id="login" value="Login">
     <h4 >Don't have an account? <a href="register.php">Sign up</a> </h4>
-    <h4 >Forgot your password? <a href="forgotpassword.html">Reset Password</a> </h4>
+    <h4 >Forgot your password? <a href="forgotpassword.php">Reset Password</a> </h4>
 
     </form>
     <script src="js/script.js"></script>
