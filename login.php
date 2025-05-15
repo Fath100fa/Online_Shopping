@@ -33,23 +33,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <form id="loginForm" action="login.php" method="post">
-    <h1>Login</h1>
+    <h1><i class="fas fa-sign-in-alt"></i> Login</h1>
     
-    <?php if (isset($error)) { echo "<p style='color: red'>$error</p>"; } ?>
+    <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
 
     <input type="text" name="username" id="username" placeholder="Username or Email" required>
     <br>
+    <div class="password-container">
         <input type="password" name="password" id="password" placeholder="Password" required>
-        <span>
-            <input type="checkbox" id="ShowPassword" onclick="showPassword()" >  Show Password
-        </span>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+    </div>
     <br>
     <input type="submit" id="login" value="Login">
-    <h4 >Don't have an account? <a href="register.php">Sign up</a> </h4>
-    <h4 >Forgot your password? <a href="forgotpassword.php">Reset Password</a> </h4>
+    <h4><i class="fas fa-user-plus"></i> Don't have an account? <a href="register.php">Sign up</a> </h4>
+    <h4><i class="fas fa-key"></i> Forgot your password? <a href="forgotpassword.php">Reset Password</a> </h4>
 
     </form>
     <script src="js/script.js"></script>

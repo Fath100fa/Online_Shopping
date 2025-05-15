@@ -5,6 +5,46 @@ body {
     padding: 0;
 }
 
+/* Font Awesome Icons Styling */
+.fa, .fas, .far, .fab {
+    margin-right: 5px;
+}
+
+/* Password Toggle Styling */
+.password-container {
+    position: relative;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #58b35b;
+    margin-right: 0;
+    font-size: 20px;
+    transition: all 0.2s ease;
+    z-index: 10;
+    padding: 10px 5px;
+}
+
+.toggle-password:hover {
+    color: #38953c;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password.fa-eye-slash {
+    color: #38953c;
+}
+
 /* Adding keyframes for animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }

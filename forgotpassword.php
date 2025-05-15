@@ -63,36 +63,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <form id="resetPasswordForm" action="forgotpassword.php" method="post">
-        <h1>Reset Password</h1>
+        <h1><i class="fas fa-key"></i> Reset Password</h1>
         
-        <?php if (isset($error)) { echo "<p style='color: red'>$error</p>"; } ?>
-        <?php if (isset($success)) { echo "<p style='color: green'>$success</p>"; } ?>
+        <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
+        <?php if (isset($success)) { echo "<p style='color: green'><i class='fas fa-check-circle'></i> $success</p>"; } ?>
         
         <?php if ($step == 1): ?>
             <!-- Step 1: Enter email -->
-            <h4>Enter your email to reset your password</h4>
+            <h4><i class="fas fa-envelope"></i> Enter your email to reset your password</h4>
             <input type="email" name="email" id="email" placeholder="Email" required>
             <br>
             <input id="login" type="submit" value="Continue">
-            <h4>Remember your password? <a href="login.php">Login</a></h4>
-
+            <h4><i class="fas fa-sign-in-alt"></i> Remember your password? <a href="login.php">Login</a></h4>
+  
         <?php elseif ($step == 2): ?>
             <!-- Step 2: Enter new password -->
-            <p>Enter your new password</p>
-            <input type="password" name="new_password" id="password" placeholder="New Password" required>
-            <span>
-                <input type="checkbox" id="ShowPassword" onclick="showPassword()"> Show Password
-            </span>
+            <h4><i class="fas fa-lock"></i> Enter your new password</h4>
+            <div class="password-container">
+                <input type="password" name="new_password" id="password" placeholder="New Password" required>
+                <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+            </div>
             <br>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm New Password" required>
-            <span>
-                <input type="checkbox" id="ShowPassword" onclick="showConfirmPassword()"> Show Password
-            </span>
+            <div class="password-container">
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm New Password" required>
+                <i class="fa-solid fa-eye toggle-password" id="toggleConfirmPassword"></i>
+            </div>
             <br>
-            <input type="submit" id="login" value="Reset Password">
+            <input id="login" type="submit" value="Reset Password">
             
         <?php elseif ($step == 3): ?>
             <!-- Step 3: Success message -->
@@ -101,24 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     </form>
     
-    <script>
-    function showPassword() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-    
-    function showConfirmPassword() {
-        var x = document.getElementById("confirm_password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html> 

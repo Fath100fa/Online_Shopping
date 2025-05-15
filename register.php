@@ -49,13 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  
 </head>
 <body>
     <form id="SignupForm" action="register.php" method="post">
-        <h1>Sign up</h1>
+        <h1><i class="fas fa-user-plus"></i> Sign up</h1>
         
-        <?php if (isset($error)) { echo "<p style='color: red'>$error</p>"; } ?>
+        <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
         
 <input type="text" name="username" id="username" placeholder="Username" required>
 <br>
@@ -63,20 +64,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <br>
 <input type="date" name="date" id="date" placeholder="Date of Birth" required>
 <br>
-<input type="password" name="password" id="password" placeholder="Password" required>
-
-<span>
-    <input type="checkbox" id="ShowPassword" onclick="showPassword()" >  Show Password
-</span>
+<div class="password-container">
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+</div>
 <br>
-<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-
-<span>
-    <input type="checkbox" id="ShowPassword" onclick="showPassword1()" >  Show Password
-</span>
+<div class="password-container">
+    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+    <i class="fa-solid fa-eye toggle-password" id="toggleConfirmPassword"></i>
+</div>
 <br>
 <input type="submit" id="register" value="Register">
-<h4 >Already have an account? <a href="login.php">Login</a> </h4>
+<h4><i class="fas fa-sign-in-alt"></i> Already have an account? <a href="login.php">Login</a> </h4>
 
 <script src="js/script.js"></script>
     </form>
