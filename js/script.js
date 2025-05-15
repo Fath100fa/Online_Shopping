@@ -5,6 +5,11 @@ function showPassword() {
     } else {
     x.type = "password";
     }
+    const slash= document.querySelector("#togglePassword");
+    // console.log(slash);
+    slash.classList.toggle("fa-eye-slash");
+    slash.classList.toggle("fa-eye");
+    
 }
 
 function showPassword1() {
@@ -15,6 +20,8 @@ function showPassword1() {
     x.type = "password";
     }
 }
+
+
 
 function addToCart(productId) {
     // will be completed in part 2 of project
