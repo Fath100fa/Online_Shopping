@@ -52,9 +52,6 @@ $user = $result->fetch_assoc();
             <h2><i class="fas fa-cog"></i> Account Settings</h2>
             <button class="profile-button">
                 <i class="fas fa-key"></i><a href="forgotpassword.php" id="profpass"> Change Password</a></button>
-            <button class="profile-button">
-                <i class="fas fa-user-edit"></i> Edit Profile
-</button>
         </div>
     </div>
 
