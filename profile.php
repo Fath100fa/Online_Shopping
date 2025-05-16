@@ -31,7 +31,7 @@ $user = $result->fetch_assoc();
         <h3><i class="fas fa-laptop-code"></i> CompuVerse</h3>
         <ul>
             <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </nav>
 
@@ -51,11 +51,10 @@ $user = $result->fetch_assoc();
         <div class="profile-section">
             <h2><i class="fas fa-cog"></i> Account Settings</h2>
             <button class="profile-button">
-                <i class="fas fa-key"></i> Change Password
-            </button>
+                <i class="fas fa-key"></i><a href="forgotpassword.php" id="profpass"> Change Password</a></button>
             <button class="profile-button">
                 <i class="fas fa-user-edit"></i> Edit Profile
-            </button>
+</button>
         </div>
     </div>
 

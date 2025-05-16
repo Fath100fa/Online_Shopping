@@ -149,7 +149,7 @@ body {
     background-color: #f9f9f9;
     animation: fadeIn 0.8s ease-out;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
  #SignupForm{
     display: flex;
@@ -190,6 +190,9 @@ body {
     background-color: white;
     border-color: #58b35b;
     transform: translateY(-2px);
+     cursor: pointer;
+    transition: all 0.3s ease;
+    
 }
 
 #login:active, #register:active {
@@ -205,6 +208,7 @@ a {
 #loginForm a:hover, #SignupForm a:hover, #resetPasswordForm a:hover {
     color: #38953c;
     text-decoration: underline;
+   
 }
 
 nav {
@@ -308,12 +312,15 @@ section h2 {
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
+     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .product button:hover {
        background-color: white;
     border-color: #58b35b;
     color: #58b35b;
+    
 }
 
 #ShowPassword{
@@ -359,9 +366,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
 
 .nav-search {
     flex: 1;
@@ -410,6 +414,9 @@ nav ul li a:hover {
     margin-right: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+#profpass{
+    color: white;
 }
 
 .profile-button:hover {
