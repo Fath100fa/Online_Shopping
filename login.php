@@ -41,15 +41,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
 
-    <input type="text" name="username" id="username" placeholder="Username or Email" required>
-    <i class="fas fa-user input-icon"></i>
-    <br>
+    <div class="input-container">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" name="username" id="username" placeholder="Username or Email" required>
+    </div>
+    
     <div class="password-container">
-        <input type="password" name="password" id="password" placeholder="Password"  required>
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" name="password" id="password" placeholder="Password" required>
         <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" onclick="showPassword()"></i>
     </div>
-    <i class="fas fa-lock input-icon"></i>
-    <br>
+    
     <input type="submit" id="login" value="Login">
     <h4><i class="fas fa-user-plus"></i> Don't have an account? <a href="register.php">Sign up</a> </h4>
     <h4><i class="fas fa-key"></i> Forgot your password? <a href="forgotpassword.php">Reset Password</a> </h4>

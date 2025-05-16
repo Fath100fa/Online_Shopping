@@ -45,80 +45,42 @@ body {
     color: #28a745;
 }
 
-/* Password Toggle Styling */
-.password-container {
+/* Create an input container for proper icon positioning */
+.input-container {
     position: relative;
     width: 80%;
-    display: flex;
-    align-items: center;
+    margin-bottom: 15px;
 }
 
-.password-container input {
-    width: 100%;
-}
-
-.toggle-password {
+/* Input field icon positioning */
+.input-icon {
     position: absolute;
-    right: 15px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
     color: #58b35b;
-    margin-right: -50px;
-    margin-top: -7px;
-    font-size: 20px;
-    transition: all 0.2s ease;
-    z-index: 10;
-    padding: 10px 5px;
+    z-index: 1;
 }
 
-.toggle-password:hover {
-    color: #38953c;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.toggle-password.fa-eye-slash {
-    color: #38953c;
-}
-
-/* Adding keyframes for animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-@keyframes borderGlow {
-    0% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
-    50% { box-shadow: 0 0 15px rgba(88, 179, 91, 0.8); }
-    100% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
-}
-
-#username,#email, #date {
-    width: 76%;
-    padding: 10px;
+/* Adjust input fields to accommodate the icons */
+#username, #email, #date {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
     border: 4px solid #d3f0b7;
     border-radius: 11px;
-    margin-bottom: 15px;
-    margin-left: -15px;
     font-size: 14px;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 #password, #confirm_password {
-    width: 110%;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 10px 10px 35px;
     border: 4px solid #d3f0b7;
     border-radius: 11px;
-    margin-bottom: 15px;
-    margin-left: -15px;
     font-size: 14px;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 #username:focus,
@@ -385,14 +347,6 @@ nav ul li a {
     outline: none;
 }
 
-/* Input field icon positioning */
-.input-icon {
-    position: relative;
-    left: -95%;
-    top: -50px;
-    color: #58b35b;
-}
-
 /* Profile page styling */
 .user-profile-container {
     max-width: 800px;
@@ -440,4 +394,55 @@ nav ul li a {
 /* Button with icon styling */
 button i {
     margin-right: 5px;
+}
+
+/* Password Toggle Styling */
+.password-container {
+    position: relative;
+    width: 80%;
+    margin-bottom: 15px;
+}
+
+.password-container input {
+    width: 100%;
+    padding-left: 35px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #58b35b;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+.toggle-password:hover {
+    color: #38953c;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password.fa-eye-slash {
+    color: #38953c;
+}
+
+/* Adding keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(88, 179, 91, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(88, 179, 91, 0.5); }
 }

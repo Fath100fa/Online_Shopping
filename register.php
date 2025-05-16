@@ -58,28 +58,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
         
-<input type="text" name="username" id="username" placeholder="Username" required>
-<i class="fas fa-user input-icon"></i>
-<br>
-<input type="email" name="email" id="email" placeholder="Email" required>
-<i class="fas fa-envelope input-icon"></i>
-<br>
-<input type="date" name="date" id="date" placeholder="Date of Birth" required>
-<i class="fas fa-calendar-alt input-icon"></i>
-<br>
+<div class="input-container">
+    <i class="fas fa-user input-icon"></i>
+    <input type="text" name="username" id="username" placeholder="Username" required>
+</div>
+
+<div class="input-container">
+    <i class="fas fa-envelope input-icon"></i>
+    <input type="email" name="email" id="email" placeholder="Email" required>
+</div>
+
+<div class="input-container">
+    <i class="fas fa-calendar-alt input-icon"></i>
+    <input type="date" name="date" id="date" placeholder="Date of Birth" required>
+</div>
+
 <div class="password-container">
+    <i class="fas fa-lock input-icon"></i>
     <input type="password" name="password" id="password" placeholder="Password" required>
     <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" onclick="showPassword()"></i>
 </div>
-<i class="fas fa-lock input-icon"></i>
-<br>
+
 <div class="password-container">
+    <i class="fas fa-lock input-icon"></i>
     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
     <i class="fa-solid fa-eye-slash toggle-password" id="toggleConfirmPassword" onclick="showPassword1()"></i>
-
 </div>
-<i class="fas fa-lock input-icon"></i>
-<br>
+
 <input type="submit" id="register" value="Register">
 <h4><i class="fas fa-sign-in-alt"></i> Already have an account? <a href="login.php">Login</a> </h4>
 

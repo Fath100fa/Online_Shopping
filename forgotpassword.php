@@ -75,9 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if ($step == 1): ?>
             <!-- Step 1: Enter email -->
             <h4><i class="fas fa-envelope"></i> Enter your email to reset your password</h4>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <i class="fas fa-envelope input-icon"></i>
-            <br>
+            <div class="input-container">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            
             <input id="login" type="submit" value="Continue">
             <h4><i class="fas fa-sign-in-alt"></i> Remember your password? <a href="login.php">Login</a></h4>
 
@@ -85,19 +87,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Step 2: Enter new password -->
             <h4><i class="fas fa-lock"></i> Enter your new password</h4>
             <div class="password-container">
+                <i class="fas fa-lock input-icon"></i>
                 <input type="password" name="new_password" id="password" placeholder="New Password" required>
-                    <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" onclick="showPassword()"></i>
-
+                <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" onclick="showPassword()"></i>
             </div>
-            <i class="fas fa-lock input-icon"></i>
-            <br>
+            
             <div class="password-container">
+                <i class="fas fa-lock input-icon"></i>
                 <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm New Password" required>
-                    <i class="fa-solid fa-eye-slash toggle-password" id="toggleConfirmPassword" onclick="showPassword1()"></i>
-
+                <i class="fa-solid fa-eye-slash toggle-password" id="toggleConfirmPassword" onclick="showPassword1()"></i>
             </div>
-            <i class="fas fa-lock input-icon"></i>
-            <br>
+            
             <input id="login" type="submit" value="Reset Password">
             
         <?php elseif ($step == 3): ?>
