@@ -36,7 +36,7 @@ $user = $result->fetch_assoc();
     </nav>
 
     <div class="user-profile-container">
-        <h1><i class="fas fa-user-circle"></i> User Profile</h1>
+        <h1><i class="fas fa-user-circle"></i> <?php echo htmlspecialchars($username."'s Profile"); ?> </h1>
         
         <div class="profile-section">
             <p><i class="fas fa-user"></i> <strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
