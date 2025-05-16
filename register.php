@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <form id="SignupForm" action="register.php" method="post">
-        <h1><i class="fas fa-user-plus"></i> Sign up</h1>
+        <h1 style="color:rgb(33, 126, 36);" ><i class="fas fa-user-plus"></i> Sign up</h1>
         
         <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
         
