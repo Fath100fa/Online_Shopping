@@ -67,14 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <form id="resetPasswordForm" action="forgotpassword.php" method="post">
-        <h1><i class="fas fa-key"></i> Reset Password</h1>
+        <h1 style="color:rgb(44, 146, 47);"><i class="fas fa-key"></i> Reset Password</h1>
         
         <?php if (isset($error)) { echo "<p style='color: red'><i class='fas fa-exclamation-circle'></i> $error</p>"; } ?>
         <?php if (isset($success)) { echo "<p style='color: green'><i class='fas fa-check-circle'></i> $success</p>"; } ?>
         
         <?php if ($step == 1): ?>
             <!-- Step 1: Enter email -->
-            <h4><i class="fas fa-envelope"></i> Enter your email to reset your password</h4>
+            <h4 style="color:rgb(19, 65, 20);"><i class="fas fa-envelope"></i> Enter your email to change your password</h4>
             <div class="input-container">
                 <i class="fas fa-envelope input-icon"></i>
                 <input type="email" name="email" id="email" placeholder="Email" required>
