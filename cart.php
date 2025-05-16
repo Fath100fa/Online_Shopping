@@ -17,11 +17,20 @@ if (!$conn) {
 <body>
     <nav>
         <h3><i class="fas fa-laptop-code"></i> CompuVerse</h3>
-        <ul>
+        <ul> 
+            <li><a href="profile.php">
+                <i class="fas fa-user"></i>
+                <?php
+                    if (isset($_SESSION["username"])) {
+                        echo $_SESSION["username"];
+                    } else {
+                        echo "Guest";
+                    }
+                ?>
+            </a></li>
             <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="Login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            <li><a href="Register.php"><i class="fas fa-user-plus"></i> Register</a></li>
-        </ul>
+            <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
     </nav>
 
     <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
