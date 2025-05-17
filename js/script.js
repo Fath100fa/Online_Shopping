@@ -26,21 +26,6 @@ function showPassword1() {
 
 
 
-function addToCart(productId) {
-    // will be completed in part 2 of project
-    XMLHttpRequest = new XMLHttpRequest();
-    XMLHttpRequest.open("POST", "add_to_cart.php", true);
-    XMLHttpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    XMLHttpRequest.onreadystatechange = function() {
-        if (XMLHttpRequest.readyState == 4 && XMLHttpRequest.status == 200) {
-            alert("Product " + productId + " added to cart!");
-        }
-    };
-    window.location.href = "cart.php";
-}
-function removeFromCart(productId) {
-    // will be completed in part 2 of project
-}
 
 const stars = document.querySelectorAll("#rating span");
     stars.forEach((star) => {

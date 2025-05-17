@@ -81,7 +81,9 @@
                         echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
                         echo '<p><i class="fas fa-tag"></i> ' . htmlspecialchars($product['price']) . ' EGP</p>';
                         echo '<a href="details.php?id=' . urlencode($product['id']) . '"><button><i class="fas fa-info-circle"></i> View Details</button></a>';
-                        echo '<button onclick="addToCart(\'item' . htmlspecialchars($product['id']) . '\')"><i class="fas fa-cart-plus"></i> Add to Cart</button>';
+                        echo '<form method="POST" action="cart.php">
+                            <input type="hidden" name="product_id" value="' . htmlspecialchars($product['id']) . '">
+                            <button type="submit"><i class="fas fa-shopping-cart"></i> Add to Cart</button>';
                         echo '</div>';
                     }
                 }
