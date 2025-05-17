@@ -81,7 +81,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             
             <input id="login" type="submit" value="Continue">
-            <h4><i class="fas fa-sign-in-alt"></i> Remember your password? <a href="login.php">Login</a></h4>
+            <?php
+            if(!isset($_SESSION["username"])){
+                echo "<h4><i class='fas fa-sign-in-alt'></i> Remember your password? <a href='login.php'>Login</a></h4>";
+            }
+            ?>
+            
 
         <?php elseif ($step == 2): ?>
             <!-- Step 2: Enter new password -->
