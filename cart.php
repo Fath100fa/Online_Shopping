@@ -147,8 +147,13 @@
                 <div style="text-align:right;font-size:1.2em;margin-top:15px;">
                     <strong>Total: <?php echo $total; ?> EGP</strong>
                 </div>
-                <form method="POST" style="text-align:right;">
+                <form method="POST" style="text-align:right; display:inline;">
                     <button id="clear-cart-button" name="clear_cart" type="submit"><i class="fas fa-trash-alt"></i> Clear Cart</button>
+                </form>
+                <form action="checkout.php" method="GET" style="text-align:right; display:inline;">
+                    <button id="checkout-button" type="submit" style="background:#58b35b; color:#fff; border:none; border-radius:6px; padding:8px 18px; font-size:15px; margin-top:10px; margin-left:10px; cursor:pointer; transition:background 0.2s;">
+                        <i class="fas fa-credit-card"></i> Checkout
+                    </button>
                 </form>
             </div>
         <?php endif; ?>
