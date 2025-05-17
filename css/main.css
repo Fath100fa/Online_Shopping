@@ -431,6 +431,63 @@ button i {
     color: #38953c;
 }
 
+/* Cart quantity controls */
+.cart-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.cart-item-name {
+    flex: 2;
+    text-align: left;
+}
+.cart-item-price {
+    flex: 1;
+    color: #58b35b;
+    font-weight: bold;
+}
+.cart-qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.qty-btn {
+    background: #58b35b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.qty-btn:hover {
+    background: #38953c;
+}
+.cart-qty {
+    min-width: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+#clear-cart-button {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#clear-cart-button:hover {
+    background: #b52a37;
+}
+
 /* Adding keyframes for animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
