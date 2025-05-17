@@ -76,7 +76,7 @@
                     foreach ($products as $product) {
                         echo '<div class="product" id="item' . htmlspecialchars($product['id']) . '">';
                         echo '<a href="details.php?id=' . urlencode($product['id']) . '">';
-                        echo '<img src="img/' . htmlspecialchars($product['image_url']) . '" alt="' . htmlspecialchars($product['name']) . '">';
+                        echo '<img src="img/' . htmlspecialchars($product['image_url']) . '" alt="' . htmlspecialchars($product['name']) . ' " loading="lazy" >';
                         echo '</a>';
                         echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
                         echo '<p><i class="fas fa-tag"></i> ' . htmlspecialchars($product['price']) . ' EGP</p>';

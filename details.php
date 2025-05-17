@@ -1,46 +1,68 @@
 <?php
 session_start();
 include "conn.php";
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-    $result = $conn->query("SELECT * FROM products");
-    if ($result === false) {
-        die("Error: " . $conn->error);
-    }
-    $products = $result->fetch_all(MYSQLI_ASSOC);
-    $conn->close();
 
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Invalid product ID.");
+}
+
+$id = intval($_GET['id']);
+$stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$product = $result->fetch_assoc();
+$stmt->close();
+$conn->close();
+
+if (!$product) {
+    die("Product not found.");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>details</title>
-  <link rel="stylesheet" href="css/Details.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title><?php echo htmlspecialchars($product['name']); ?> - CompuVerse</title>
+    <link rel="stylesheet" href="css/Details.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <h1><i class="fas fa-laptop"></i> <!--php--></h1>
-    <img src="<!--php-->" alt="<!--php-->" />
-    <p><strong><i class="fas fa-tag"></i> Price:</strong> <!--php--></p>
-    <p>
-      <strong><i class="fas fa-microchip"></i> Specs:</strong> <!--php-->
-    </p>
 
-    <h2><i class="fas fa-star"></i> Rate this Laptop</h2>
-    <div class="rating" id="rating">
-      <span data-value="1">&#9733;</span>
-      <span data-value="2">&#9733;</span>
-      <span data-value="3">&#9733;</span>
-      <span data-value="4">&#9733;</span>
-      <span data-value="5">&#9733;</span>
-    </div>
-    
-    </div>
-  </div>
+<nav>
+    <h3><i class="fas fa-laptop-code"></i> CompuVerse</h3>
+    <ul>
+        <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="profile.php"><i class="fas fa-user"></i> <?php echo $_SESSION["username"] ?? "Guest"; ?></a></li>
+        <li><a href="Login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        <li><a href="register.php"><i class="fas fa-user-plus"></i> Sign up</a></li>
+    </ul>
+</nav>
 
-<script src="js/script.js"></script>
+<main class="product-details">
+    <div class="left">
+        <img src="img/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" loading="lazy">
+    </div>
+    <div class="right">
+        <h1><?php echo htmlspecialchars($product['name']); ?></h1>
+        <p><strong>Price:</strong> <?php echo htmlspecialchars($product['price']); ?> EGP</p>
+        <p><strong>Rating:</strong> <?php echo htmlspecialchars($product['rating']); ?> / 5</p>
+        <h3><i class="fas fa-info-circle"></i> Specifications</h3>
+        <p><?php echo nl2br(htmlspecialchars($product['description'])); ?></p>
+        
+    </div>
+</main>
+
+
+<footer>
+    <p><i class="far fa-copyright"></i> 2023 CompuVerse. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
