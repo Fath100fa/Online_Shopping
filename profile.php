@@ -43,7 +43,47 @@ $user = $result->fetch_assoc();
         
         <div class="profile-section">
             <h2><i class="fas fa-shopping-bag"></i> Order History</h2>
-            <p><i class="fas fa-info-circle"></i> Order history will be displayed here.</p>
+            <p>
+                <?php
+                $order_sql = "SELECT * FROM orders WHERE user_id = ?";
+                $order_stmt = $conn->prepare($order_sql);
+                $order_stmt->bind_param("i", $user['id']);
+                $order_stmt->execute();
+                $order_result = $order_stmt->get_result();
+
+                if ($order_result->num_rows > 0) {
+                    while ($order = $order_result->fetch_assoc()) {
+                        echo "<div class='order-block'>";
+                        echo "<p>Order ID: " . htmlspecialchars($order['id']) . " - Total: $" . htmlspecialchars($order['total_amount']) . "</p>";
+
+                        // Fetch order items for this order
+                        $item_sql = "SELECT oi.*, p.name AS product_name FROM order_items oi JOIN products p ON oi.product_id = p.id WHERE oi.order_id = ?";
+                        $item_stmt = $conn->prepare($item_sql);
+                        $item_stmt->bind_param("i", $order['id']);
+                        $item_stmt->execute();
+                        $item_result = $item_stmt->get_result();
+
+                        if ($item_result->num_rows > 0) {
+                            echo "<ul>";
+                            while ($item = $item_result->fetch_assoc()) {
+                                echo "<li>" . htmlspecialchars($item['product_name']) . " (Qty: " . htmlspecialchars($item['quantity']) . ")</li>";
+                            }
+                            echo "</ul>";
+                        } else {
+                            echo "<p>No items found for this order.</p>";
+                        }
+                        $item_stmt->close();
+
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<p>No orders found.</p>";
+                }
+
+                $order_stmt->close();
+                ?>
+
+            </p>
         </div>
         
         <div class="profile-section">
