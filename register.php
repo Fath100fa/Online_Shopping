@@ -9,11 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     
-    // Validate password match
     if ($password !== $confirm_password) {
         $error = "Passwords do not match";
     } else {
-        // Check if username or email already exists
         $check_sql = "SELECT * FROM users WHERE username = ? OR email = ?";
         $check_stmt = $conn->prepare($check_sql);
         $check_stmt->bind_param("ss", $username, $email);
@@ -23,10 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($check_result->num_rows > 0) {
             $error = "Username or email already exists";
         } else {
-            // Hash the password
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
             
-            // Insert the new user
             $insert_sql = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
             $insert_stmt = $conn->prepare($insert_sql);
             $insert_stmt->bind_param("sss", $username, $email, $password_hash);

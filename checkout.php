@@ -5,13 +5,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Redirect if cart is empty
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     header("Location: cart.php");
     exit;
 }
 
-// Fetch products in cart
 $cart_products = [];
 $total = 0;
 $ids = implode(',', array_map('intval', array_keys($_SESSION['cart'])));
@@ -25,21 +23,18 @@ if ($result) {
     }
 }
 
-// Handle checkout form submission
 $success = false;
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
     if (!isset($_SESSION['username'])) {
         $error = "You must be logged in to checkout.";
     } else {
-        // Get user id
         $username = $_SESSION['username'];
         $user_q = $conn->query("SELECT id FROM users WHERE username='" . $conn->real_escape_string($username) . "' LIMIT 1");
         if ($user_q && $user_q->num_rows > 0) {
             $user = $user_q->fetch_assoc();
             $user_id = $user['id'];
 
-            // Insert order (use correct column names)
             $stmt = $conn->prepare("INSERT INTO orders (user_id, order_date, total_amount) VALUES (?, NOW(), ?)");
             if (!$stmt) {
                 die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
@@ -48,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
             if ($stmt->execute()) {
                 $order_id = $stmt->insert_id;
 
-                // Insert order items (use correct column names)
                 $item_stmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)");
                 if (!$item_stmt) {
                     die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
@@ -59,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
                 }
                 $item_stmt->close();
 
-                // Clear cart
                 $_SESSION['cart'] = [];
                 $success = true;
             } else {

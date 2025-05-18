@@ -2,10 +2,9 @@
 session_start();
 include "conn.php";
 
-$step = 1; // Default to step 1 (email input)
+$step = 1;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Step 1: Email verification
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
         
@@ -25,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    // Step 2: Password reset
     if (isset($_POST["new_password"]) && isset($_SESSION["reset_email"])) {
         $new_password = $_POST["new_password"];
         $confirm_password = $_POST["confirm_password"];

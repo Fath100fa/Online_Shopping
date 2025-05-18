@@ -47,14 +47,12 @@ body {
  
 
 
-/* Create an input container for proper icon positioning */
 .input-container {
     position: relative;
     width: 80%;
     margin-bottom: 15px;
 }
 
-/* Input field icon positioning */
 .input-icon {
     position: absolute;
     left: 10px;
@@ -64,7 +62,6 @@ body {
     z-index: 1;
 }
 
-/* Adjust input fields to accommodate the icons */
 #username, #email, #date {
     width: 100%;
     padding: 10px 10px 10px 35px;
@@ -393,12 +390,10 @@ nav ul li a {
     color: #ffc107;
 }
 
-/* Button with icon styling */
 button i {
     margin-right: 5px;
 }
 
-/* Password Toggle Styling */
 .password-container {
     position: relative;
     width: 80%;
@@ -431,7 +426,6 @@ button i {
     color: #38953c;
 }
 
-/* Cart quantity controls */
 .cart-item-row {
     display: flex;
     align-items: center;
@@ -488,7 +482,6 @@ button i {
     background: #b52a37;
 }
 
-/* Adding keyframes for animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

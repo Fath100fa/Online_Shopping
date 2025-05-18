@@ -2,13 +2,11 @@
 session_start();
 include "conn.php";
 
-// Check if the user is logged in
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
 }
 
-// Get user information
 $username = $_SESSION["username"];
 $sql = "SELECT * FROM users WHERE username = ?";
 $stmt = $conn->prepare($sql);
