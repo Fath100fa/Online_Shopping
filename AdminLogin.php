@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conn.php'; 
+include 'conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usernameOrEmail = $_POST['username'];
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: dashboard.php"); 
         exit;
     } else {
-        echo "<script>alert('بيانات خاطئة أو مش أدمن'); window.location.href='AdminLogin.php';</script>";
+        echo "<script>alert('Wrong information or not Admin'); window.location.href='AdminLogin.php';</script>";
     }
 }
 ?>
